@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>sdv_demo_launch</name>
+  <version>0.0.0</version>
+  <description>The sdv_demo_launch package</description>
+  <maintainer email="luxiang.zhou@autocore.ai">luxiang zhou</maintainer>
+  <license>Apache License 2.0</license>
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
+  <depend>aip_xx1_description</depend>
+  <depend>control_launch</depend>
+  <depend>dummy_perception_publisher</depend>
+  <depend>individual_params</depend>
+  <depend>lexus_description</depend>
+  <depend>map_launch</depend>
+  <depend>perception_launch</depend>
+  <depend>planning_launch</depend>
+  <depend>system_launch</depend>
+  <depend>vehicle_info_param_server</depend>
+  <depend>vehicle_launch</depend>
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
