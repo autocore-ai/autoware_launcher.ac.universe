@@ -1,32 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-  <arg name="map_path" doc="point cloud and lanelet2 map directory path" default="$(env PWD /AutowareArchitectureProposal)/env/map" />
+  <arg name="map_path" doc="point cloud and lanelet2 map directory path" default="$(env SDV_RUN_DIR /AutowareArchitectureProposal/env)/map" />
   <arg name="lanelet2_map_file" default="lanelet2_map.osm" />
   <arg name="pointcloud_map_file" default="pointcloud_map.pcd" />
   <arg name="sensing/visible_range" default="300.0" />
   <arg name="vehicle_model" default="lexus" />
-  <include file="$(find-pkg-share map_launch)/launch/map.launch.xml">
+  <arg name="sensor_model" default="aip_xx1" />
+  <arg name="rviz" default="false" />
+  <arg name="initial_engage_state" default="true"/>
+  <include file="$(find-pkg-share autoware_launch)/launch/planning_simulator.launch.xml">
+    <arg name="map_path" value="$(var map_path)"/>
     <arg name="lanelet2_map_path" value="$(var map_path)/$(var lanelet2_map_file)" />
     <arg name="pointcloud_map_path" value="$(var map_path)/$(var pointcloud_map_file)" />
+    <arg name="vehicle_model" value="$(var vehicle_model)"/>
+    <arg name="sensor_model" value="$(var sensor_model)"/>
+    <arg name="rviz" value="$(var rviz)"/>
   </include>
-  <include file="$(find-pkg-share dummy_perception_publisher)/launch/dummy_perception_publisher.launch.xml">
-    <arg name="real" value="false" />
-    <arg name="use_object_recognition" value="true" />
-    <arg name="visible_range" value="$(var sensing/visible_range)" />
-  </include>
-  <include file="$(find-pkg-share planning_launch)/launch/planning.launch.xml" />
-  <include file="$(find-pkg-share control_launch)/launch/control.launch.xml">
-    <arg name="lateral_controller_mode" value="pure_pursuit" doc="options: mpc_follower, pure_pursuit" />
-  </include>
-  <include file="$(find-pkg-share vehicle_info_param_server)/launch/vehicle_info_param_server.launch.xml">
-    <arg name="config_file" value="$(find-pkg-share $(var vehicle_model)_description)/config/vehicle_info.param.yaml" />
-  </include>
-  <include file="$(find-pkg-share simple_planning_simulator)/launch/simple_planning_simulator.launch.xml">
-    <arg name="simulator_model" value="$(find-pkg-share $(var vehicle_model)_description)/config/simulator_model.param.yaml" />
-    <arg name="initial_engage_state" value="true" />
-  </include>
-  <include file="$(find-pkg-share system_launch)/launch/system.launch.xml">
-    <arg name="run_mode" value="planning_simulation" />
-  </include>
-  <executable cmd="sh -c $(var map_path)/../startup/$(env POD_NAME autoware-development-0).sh" />
+  <executable cmd="sh -c $(var map_path)/../startup/$(env HOSTNAME autoware-development-0).sh" output="screen"/>
 </launch>
