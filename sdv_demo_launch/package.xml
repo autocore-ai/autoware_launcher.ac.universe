@@ -13,6 +13,7 @@
   <depend>individual_params</depend>
   <depend>lexus_description</depend>
   <depend>vehicle_info_param_server</depend>
+  <depend>vls_description</depend>
   <export>
     <build_type>ament_cmake</build_type>
   </export>
