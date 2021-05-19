@@ -6,7 +6,7 @@
   <maintainer email="luxiang.zhou@autocore.ai">luxiang zhou</maintainer>
   <license>Apache License 2.0</license>
   <buildtool_depend>ament_cmake_auto</buildtool_depend>
-  <depend>aip_xx1_description</depend>
+  <depend>aip_s1_description</depend>
   <depend>autoware_launch</depend>
   <depend>awapi_awiv_adapter</depend>
   <depend>dummy_perception_publisher</depend>

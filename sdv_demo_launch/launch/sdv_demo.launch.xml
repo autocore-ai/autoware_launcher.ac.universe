@@ -5,7 +5,7 @@
   <arg name="pointcloud_map_file" default="pointcloud_map.pcd" />
   <arg name="sensing/visible_range" default="300.0" />
   <arg name="vehicle_model" default="lexus" />
-  <arg name="sensor_model" default="aip_xx1" />
+  <arg name="sensor_model" default="aip_s1" />
   <arg name="initial_engage_state" default="true"/>
   <arg name="debug" default="false" />
   <include file="$(find-pkg-share autoware_launch)/launch/planning_simulator.launch.xml">
