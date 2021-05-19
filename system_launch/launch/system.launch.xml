@@ -6,7 +6,7 @@
     <push-ros-namespace namespace="/system"/>
 
     <!-- System Monitor -->
-    <group>
+    <!-- <group>
       <push-ros-namespace namespace="system_monitor"/>
       <include file="$(find-pkg-share system_monitor)/launch/system_monitor.launch.xml">
         <arg name="cpu_monitor_config_file" value="$(find-pkg-share system_launch)/config/system_monitor/cpu_monitor.param.yaml"/>
@@ -17,7 +17,7 @@
         <arg name="process_monitor_config_file" value="$(find-pkg-share system_launch)/config/system_monitor/process_monitor.param.yaml"/>
         <arg name="gpu_monitor_config_file" value="$(find-pkg-share system_launch)/config/system_monitor/gpu_monitor.param.yaml"/>
       </include>
-    </group>
+    </group> -->
 
     <!-- State Monitor -->
     <group if="$(eval &quot;'$(var run_mode)'=='online'&quot;)">
